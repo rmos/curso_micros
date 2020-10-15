@@ -1,9 +1,9 @@
 package com.gfi.cursomicros.service;
 
-import com.gfi.cursomicros.dto.Environments;
+import com.gfi.cursomicros.dto.EnvironmentsOut;
 
 public interface IEnvironmentService {
 
-	Environments listarEntornos();
+	EnvironmentsOut listarEntornos();
 	
 }

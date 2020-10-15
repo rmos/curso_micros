@@ -2,7 +2,7 @@ package com.gfi.cursomicros.dto;
 
 import java.util.List;
 
-public class Environments {
+public class EnvironmentsOut {
 
 
     private List<Environment> environments;

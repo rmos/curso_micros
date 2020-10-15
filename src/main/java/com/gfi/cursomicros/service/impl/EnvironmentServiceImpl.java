@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gfi.cursomicros.dto.Environment;
-import com.gfi.cursomicros.dto.Environments;
+import com.gfi.cursomicros.dto.EnvironmentsOut;
 import com.gfi.cursomicros.entities.EnvironmentEntity;
 import com.gfi.cursomicros.repositories.EnvironmentRepository;
 import com.gfi.cursomicros.service.IEnvironmentService;
@@ -21,9 +21,9 @@ public class EnvironmentServiceImpl implements IEnvironmentService {
 
 	@Override
 	@Transactional
-	public Environments listarEntornos() {
+	public EnvironmentsOut listarEntornos() {
 		List<Environment> environments = new ArrayList<Environment>();
-		Environments envs = new Environments();
+		EnvironmentsOut envs = new EnvironmentsOut();
 		List<EnvironmentEntity> envsEntity = (List<EnvironmentEntity>) environmentRepository.findAll();
 		environments = mapEnvironmentListToResponseList(envsEntity);
 		envs.setEnvironments(environments);
