@@ -26,6 +26,9 @@ public class UserEntity {
     @Column(name="password_hash")
     private String passwordHash;
     
+    @Column(name="entorno")
+    private String entorno;
+    
     public Long getId() {
 		return id;
 	}
@@ -49,6 +52,12 @@ public class UserEntity {
 	}
 	public void setPasswordHash(String passwordHash) {
 		this.passwordHash = passwordHash;
+	}
+	public String getEntorno() {
+		return entorno;
+	}
+	public void setEntorno(String entorno) {
+		this.entorno = entorno;
 	}
 	
 

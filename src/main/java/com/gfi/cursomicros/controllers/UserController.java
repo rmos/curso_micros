@@ -4,12 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gfi.cursomicros.dto.UserIn;
 import com.gfi.cursomicros.dto.UserOut;
+import com.gfi.cursomicros.dto.UsersOut;
 import com.gfi.cursomicros.service.IUserService;
 
 import io.swagger.annotations.Api;
@@ -40,6 +43,23 @@ public class UserController {
 	        }
 	        
 	        return new ResponseEntity<UserOut>(response, statusResponse);
+	    }
+    
+    @ApiOperation(value = "Get Users environments", produces = "application/json")
+	@GetMapping(path = API + "/user/{environment}", produces = {
+	            MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<UsersOut> obtenerUsuariosEntorno(
+			@PathVariable String environment) {
+
+	    	UsersOut response = service.obtenerUsuarioEntorno(environment);
+	        
+	        HttpStatus statusResponse = HttpStatus.OK;
+	        
+	        if(response.equals(null)){
+	        	statusResponse = HttpStatus.NO_CONTENT;
+	        }
+	        
+	        return new ResponseEntity<UsersOut>(response, statusResponse);
 	    }
 	 
 }
