@@ -1,9 +1,6 @@
 spring:
   application:
     name: cursomicros
-
-server:
-  port: 8761
    
 eureka:
   client:
