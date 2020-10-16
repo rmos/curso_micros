@@ -23,9 +23,19 @@ public class UserServiceImpl implements IUserService {
 	@Transactional
 	public UserOut obtenerUsuario(String user) {
 		
-		Optional<UserEntity> response = userRepository.findById(Long.valueOf(user));
-		UserOut userOut= mapUserToResponseUser(response);
+		//Optional<UserEntity> response = userRepository.findById(Long.valueOf(user));
+		//UserOut userOut= mapUserToResponseUser(response);
+		UserEntity response = userRepository.findByUserId(user);
+		UserOut userOut = mapUserToResponseUser(response);
 		
+		return userOut;
+	}
+
+	private UserOut mapUserToResponseUser(UserEntity response) {
+		UserOut userOut = new UserOut();
+		userOut.setId(response.getId().toString());
+		userOut.setName(response.getName());
+		userOut.setUserId(response.getUserId());
 		return userOut;
 	}
 

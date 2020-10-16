@@ -6,12 +6,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.gfi.cursomicros.dto.LanguageIn;
 import com.gfi.cursomicros.service.ILanguageService;
 
 import io.swagger.annotations.ApiOperation;
 
+@RestController
 public class LanguageController {
 	
 	private static final String API = "/language";
@@ -25,12 +27,19 @@ public class LanguageController {
 	public ResponseEntity<HttpStatus> obtenerUsuario(
 			@RequestBody LanguageIn request) {
 
+    		validarRequest(request);
+    		
 	    	service.crearLenguaje(request);
 	        
 	        HttpStatus statusResponse = HttpStatus.CREATED;
 	        
 	        return new ResponseEntity<HttpStatus>(statusResponse);
 	    }
+
+	private void validarRequest(LanguageIn request) {
+		// TODO Auto-generated method stub
+		
+	}
 	 
 
 }

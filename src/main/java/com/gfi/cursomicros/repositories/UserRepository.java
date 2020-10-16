@@ -1,9 +1,11 @@
 package com.gfi.cursomicros.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.gfi.cursomicros.entities.UserEntity;
 
-public interface UserRepository extends CrudRepository<UserEntity, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+	
+	UserEntity findByUserId(String userId);
 
 }
